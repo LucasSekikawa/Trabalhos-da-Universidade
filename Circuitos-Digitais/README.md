@@ -1,4 +1,6 @@
-Projetos que desenvolvi na matéria de Circuitos Digitais, nessa matéria foram abordados os seguintes assuntos:
+Projetos que desenvolvi na matéria de Circuitos Digitais.
+
+Nessa matéria foram abordados os seguintes assuntos:
 
 - Introdução aos sinais digitais
 - Sistemas de numeração e conversão entre bases
@@ -16,7 +18,9 @@ Projetos que desenvolvi na matéria de Circuitos Digitais, nessa matéria foram 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
-Projects I developed in the Digital Circuits course, in this course the following topics were covered:
+Projects I developed in the Digital Circuits course.
+
+In this course the following topics were covered:
 
 - Introduction to digital signals
 - Number systems and base conversions
