@@ -30,7 +30,10 @@ Para multiplicação, o resultado `S` possui **8 bits** e a operação só consi
 - Valores negativos devem estar representados em **complemento de 2**.
 - Multiplicações com bits altos ativados devem ser sinalizadas com `F = 1`.
 
+## Ferramentas
 
+- Simulador [Digital](https://github.com/hneemann/Digital)
+- Projeto desenvolvido com flip-flops e lógica digital
 
 
 
@@ -66,3 +69,8 @@ This assignment consists of implementing a circuit for an ALU (Arithmetic Logic 
 - Only **basic logic gates** are allowed: AND, OR, NOT, NAND, NOR, XOR, and XNOR.
 - Negative values must be represented using **two’s complement**.
 - Multiplications where the higher bits are set must trigger `F = 1` to signal an error.
+
+##  Tools
+
+- [Digital Simulator](https://github.com/hneemann/Digital)
+- Project developed using flip-flops and digital logic
