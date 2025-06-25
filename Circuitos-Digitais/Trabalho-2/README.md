@@ -17,7 +17,6 @@ A lógica foi implementada por meio de uma máquina de estados finita (FSM), con
 
 - O sistema detecta toques curtos e longos usando lógica de temporização e controle de borda.
 - O número de piscadas foi controlado por contadores de estado.
-- Foram utilizados **flip-flops JK** para armazenamento de estados e lógica combinacional para transições.
 
 ## Ferramentas
 
@@ -48,7 +47,6 @@ The logic was implemented using a finite state machine (FSM) to control the blin
 
 - Short vs. long presses are detected through timing logic and edge detection.
 - The number of blinks is managed using state-based counters.
-- **JK flip-flops** were used for state storage, along with combinational logic for state transitions.
 
 ## Tools
 
