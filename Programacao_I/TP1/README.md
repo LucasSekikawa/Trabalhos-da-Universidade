@@ -12,7 +12,11 @@ Este projeto tem como objetivo a implementação de um Tipo Abstrato de Dados (T
 
 * Makefile: Arquivo responsável por automatizar o processo de compilação do projeto. Ele permite compilar o código de forma simples e otimizada, gerando o executável tp1.
 
+
+
 ---
+
+
 
 # **Project Overview**
 
