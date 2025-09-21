@@ -1,3 +1,6 @@
+/* Para um vetor começando na posição 1
+   Guardando a posição 0 para um possível sentinela */
+
 void SelectSort(vetor [], int tam)
 {
   int i, j, indiceMaior, aux;
