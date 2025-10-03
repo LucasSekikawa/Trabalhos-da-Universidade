@@ -4,7 +4,7 @@ int MaiorElemento(vetor[], int i)
   if (i == 0)
     return vetor[i];
   maiorNum = MaiorElemento(vetor, i-1);
-  if (vetor[i] > MaiorElemento)
+  if (vetor[i] > maiorNum)
     return vetor[i];
   return maiorNum;
 }
