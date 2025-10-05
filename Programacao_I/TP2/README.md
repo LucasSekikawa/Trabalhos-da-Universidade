@@ -26,8 +26,10 @@ This project's main goal is to use and modify an Abstract Data Type (ADT) for ra
 
 * racional.h: This is the read-only header that defines the interface for the rational ADT. It contains the prototypes of the functions that manipulate the rational numbers.
 
-* racioanl.c: Contains the implementation of the functions declared in racional.h. It's in this file that the logic for operations with rational numbers is developed.
+* racional.c: Contains the implementation of the functions declared in racional.h. It's in this file that the logic for operations with rational numbers is developed.
 
 * tp2.c: Contains the main() function that implements the primary program. Its responsability is to manage the array of rationals, read the input data, remove invalid elements, sort the array, and, finally, calculate the sum of all elements, printing the result at each stage according to the specified pseudo-code.
+  
 * makefile: File responsible for automating the project's the compilation process. It allows the code to be compiled simply and optimally, generating the executable.
+  
 * entrada*.txt: These files contain pre-defined test data used to check the program's output. The program is tested using input redirection (./tp2 < entrada1.txt) to simulate user input for the rational numbers.
