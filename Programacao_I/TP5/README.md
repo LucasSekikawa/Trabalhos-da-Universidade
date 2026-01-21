@@ -7,7 +7,6 @@ O objetivo deste trabalho é a implementação de um Tipo Abstrato de Dado (TAD)
 * **fprio.h**: Arquivo de cabeçalho (read-only) que define a interface da Fila de Prioridades, contendo as estruturas e os protótipos das funções.
 * **fprio.c**: Arquivo de implementação contendo a lógica para criação, inserção ordenada por prioridade, remoção do elemento de maior prioridade e destruição da fila.
 * **testa-fprio.c**: Programa de teste (read-only) fornecido para validar a implementação através de diversos cenários de uso.
-* **testa-fprio.txt**: Arquivo contendo a saída esperada do programa de teste para fins de comparação.
 * **makefile**: Script para automação da compilação do executável `tp5`.
 
 ## Project Overview
@@ -19,7 +18,6 @@ This is the fifth practical assignment (TP5) for the **CI1001 - Programming 1** 
 * **fprio.h**: Read-only header file defining the Priority Queue ADT interface, including data structures and function prototypes.
 * **fprio.c**: The implementation file where the logic for queue initialization, prioritized insertion, element removal, and memory cleanup is developed.
 * **testa-fprio.c**: Read-only test file used to verify the correct behavior of the library through a battery of tests.
-* **testa-fprio.txt**: The expected output file used to validate the program's results.
 * **makefile**: Automation script for compiling the project into the `tp5` executable.
 
 ## Compilation and Execution
