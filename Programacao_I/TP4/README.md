@@ -9,7 +9,6 @@ O objetivo central deste trabalho é a implementação completa de um Tipo Abstr
 * **tp4.c**: Programa de teste principal utilizado para validar as funções da biblioteca e verificar o comportamento da lista em diferentes cenários.
 * **makefile**: Script de automação para compilação do executável seguindo os parâmetros rígidos de flags exigidos.
 * **testa.sh**: Script de teste automatizado que compara a saída do programa com os resultados esperados e realiza a análise de memória.
-* **saida_esperada.txt**: Arquivo de referência contendo o log de saída correto para validação via script.
 
 ## Project Overview
 
@@ -22,7 +21,6 @@ This is the fourth practical assignment (TP4) for the **CI1001 - Programming 1**
 * **tp4.c**: The main test program used to validate the library functions and verify the list's behavior under various conditions.
 * **makefile**: A script to automate the compilation process, ensuring the project is built with the mandatory compiler flags.
 * **testa.sh**: A shell script for automated testing that compares program output against expected results and performs memory analysis.
-* **saida_esperada.txt**: Reference file containing the correct output log for script-based validation.
 
 ## Compilation and Execution
 
