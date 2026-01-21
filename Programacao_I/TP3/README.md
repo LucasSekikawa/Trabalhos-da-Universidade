@@ -1,8 +1,4 @@
-# Rational Numbers ADT (Dynamic Allocation) - University Project
-
-Este projeto é o terceiro trabalho prático (TP3) desenvolvido para a disciplina **CI1001 - Programação 1** na **UFPR**, sob a orientação do **Professor Marcos Castilho**.
-
-## Visão Geral do Projeto
+# Visão Geral do Projeto
 
 O objetivo principal deste trabalho é evoluir o Tipo Abstrato de Dados (TAD) para números racionais desenvolvido anteriormente, focando agora na prática de **alocação dinâmica de memória**. A principal mudança é que as funções do TAD passam a retornar ponteiros para structs alocadas dinamicamente, em vez das structs propriamente ditas. O programa deve gerenciar um vetor de ponteiros, realizar a eliminação de valores inválidos, ordenar os elementos e calcular a soma total, garantindo a liberação correta de toda a memória alocada para evitar vazamentos (memory leaks).
 
