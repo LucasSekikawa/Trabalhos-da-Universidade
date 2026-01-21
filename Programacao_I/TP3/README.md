@@ -9,7 +9,6 @@ O objetivo principal deste trabalho é evoluir o Tipo Abstrato de Dados (TAD) pa
 * **tp3.c**: Programa principal que implementa a lógica de gerenciamento do vetor de ponteiros, leitura de dados, ordenação e exibição dos resultados conforme o fluxo definido.
 * **makefile**: Script para automatizar a compilação do projeto com as flags necessárias.
 * **testa.sh**: Script shell fornecido para realizar testes automatizados de lógica e verificar vazamentos de memória usando a ferramenta **Valgrind**.
-* **testes/**: Diretório contendo arquivos de entrada e saída esperada para validação do programa.
 
 ## Project Overview
 
@@ -22,7 +21,6 @@ The primary goal of this project is to evolve the Rational Numbers Abstract Data
 * **tp3.c**: The main program file that implements the logic for managing the pointer array, data input, sorting, and displaying results according to the specified flow.
 * **makefile**: A script to automate the project's compilation process with the required flags.
 * **testa.sh**: A shell script provided to perform automated logic tests and verify memory leaks using the **Valgrind** tool.
-* **testes/**: A directory containing input and expected output files for program validation.
 
 ## Compilation and Execution
 
