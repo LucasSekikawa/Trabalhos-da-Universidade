@@ -32,8 +32,6 @@ Historico* carregar_arquivo(char *nome_arq)
     strcat(caminho_arq, nome_arq);
     strcat(caminho_arq, sufixo);
 
-    printf("caminho do arquivo: %s\n", caminho_arq);
-
     FILE *arquivo = fopen (caminho_arq, "r");
 
     if (arquivo == NULL)
