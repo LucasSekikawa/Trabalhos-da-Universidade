@@ -2,7 +2,6 @@ CC = gcc
 CFLAGS = -Wall -g
 LIBS = -lm
 
-# Ajuste: a pasta bin está "um nível acima" de onde o Makefile está
 tudo: juros
 	mkdir -p ../bin
 	mv juros ../bin
