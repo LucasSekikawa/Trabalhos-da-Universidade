@@ -51,7 +51,7 @@ void calculo_janela(Historico **lista_h, int num_arquivos, int tam_janela, doubl
 
     /* Loop para testar todas as janelas possiveis no periodo de tempo indicado,
     considerando tambem o tamanho da janela */
-    for (int k = 0; k < periodo_meses - tam_janela; k++) 
+    for (int k = 0; k <= periodo_meses - tam_janela; k++) 
     {
         // Comeca assumindo o primeiro arquivo da lista como "vencedor" para fazer as comparacoes depois
         int indice_vencedor = 0;

@@ -1,6 +1,7 @@
 #ifndef ARQUIVOS_H
 #define ARQUIVOS_H
 
+
 #include "estruturas.h"
 
 #define PASTA_DADOS "../src/Documentos/"   

@@ -1,1 +1,36 @@
+Lucas Mazurkievicz Sekikawa - GRR20255726
+
+
+Lista de Arquivos:
+
+- juros.c : É o arquivo do programa principal do trabalho, contém: inicializações necessarias de diferentes variáveis, vetores e constantes; leitura das flags passadas na entrada; chamada das funções auxiliares; alocação e liberação de memória.
+- arquivos.c : Contém todas as funções que acessam diretamente (leem) os arquivos passados dentro da pasta "Documentos". Como a leitura dos arquivos, atribuição dos elementos dos vetores das structs criadas, e leitura/tratamento das linhas.
+- calculos.c : Contém todos os calculos de taxas/cotações/variações que são utilizados para encontrar o resultado final desejado.
+- prints.c : Contém todas as possibilidades de prints que o programa pode devolver, dependendo das flags que foram passadas.
+- Todos os .h são headers de seus respectivos .c, cada um contém descrições mais detalhadas de todas as funções presentes nos seus .c.
+
+
+Como compilar:
+- É preciso estar em: lucassekikawa1/src e digitar "make tudo". Assim, o executável será gerado em: lucassekikawa1/bin, com o nome de "juros.o".
+- Assim, para executar, é preciso colocar: ./juros e as flags são (colocar numero dentro das aspas):
+- -c "capital inicial"    (OBRIGATORIO)
+- -i "ano inicial"        (NÃO OBRIGATORIO)
+- -f "ano final"          (NÃO OBRIGATORIO)
+- -w "tamanho das janelas(meses)"  (NÃO OBRIGATORIO)
+- Nomes dos arquivos               (PELO MENOS 1)
+ 
+ Regras para compilar:
+- Se -i não for informado: será considerado Janeiro de 2000.
+- Se -f não for informado: será considerado Dezembro de 2025.
+- Se -w for usado: pelo menos dois investimentos devem ser informados.
+- O tamanho da janela pode variar entre 6 e 12 meses.
+
+
+Experiência geral no trabalho:
+
+- Uma das partes mais dificeis foi sem duvida o começo, não tinha certeza de como eu faria a leitura e o armazenamento de um número de arquivos não pre-estabelecido. Eu já sabia que deveria usar a alocação de memória mas não sabia qual era a melhor forma de armazenar os dados lidos, fiquei entre: vetor, matriz e lista-encadeada. Acabei desconsiderando quase que de inicio a última opção, pois pensei que o principal uso dessas estrutuas seria justamente para acesso, o que a matriz e o vetor fazem de forma melhorada, em comparação com a lista-encadeada. Dessa forma fiquei entre matriz e vetor, mas ainda na aula eu tive a ideia de usar duas structs diferentes para o trabalho:
+ 
+- A struct "Histórico", que seria a responsável por armazenar os todas as informações relevantes de cada arquivo para o trabalho, como o nome do arquivo, o numero de meses (pensei de inicio que talvez tivessem arquivos com menos de 12 meses), o formato do arquivo (se era taxa ou cotação), um vetor da struct "Registros", e a capacidade de Registros que ele teria (usada pois não sabia o numero de linhas que cada arquivo teria, com isso, a capacidade vai aumentando dinamicamente).
+
+- A struct "Registro", que seria a responsável por armazenar os dados relevantes da cada linha: a data, e o valor presente nelas. Com isso, cada Struct Histórico, tem um vetor de registros equivalentes, cada um, a cada mês presente no arquivo.
 

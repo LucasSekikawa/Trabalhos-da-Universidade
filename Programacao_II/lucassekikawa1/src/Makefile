@@ -2,13 +2,14 @@ CC = gcc
 CFLAGS = -Wall -g
 LIBS = -lm
 
-# Ajuste: a pasta bin está "um nível acima" de onde o Makefile está
+OBJETOS = juros.o arquivos.o calculos.o prints.o processamento.o
+
 tudo: juros
 	mkdir -p ../bin
 	mv juros ../bin
 
-juros: juros.o arquivos.o calculos.o prints.o
-	$(CC) $(CFLAGS) -o juros juros.o arquivos.o calculos.o prints.o $(LIBS)
+juros: $(OBJETOS)
+	$(CC) $(CFLAGS) -o juros $(OBJETOS) $(LIBS)
 
 juros.o: juros.c
 	$(CC) $(CFLAGS) -c juros.c -o juros.o
@@ -22,9 +23,12 @@ calculos.o: calculos.c
 prints.o: prints.c
 	$(CC) $(CFLAGS) -c prints.c -o prints.o
 
+processamento.o: processamento.c
+	$(CC) $(CFLAGS) -c processamento.c -o processamento.o
+
 limpa:
 	rm -f *~ *.bak core
 
 faxina: limpa
-	rm -f juros.o arquivos.o calculos.o prints.o juros
+	rm -f $(OBJETOS) juros
 	rm -rf ../bin/juros
