@@ -28,9 +28,84 @@ Como compilar:
 
 Experiência geral no trabalho:
 
-- Uma das partes mais dificeis foi sem duvida o começo, não tinha certeza de como eu faria a leitura e o armazenamento de um número de arquivos não pre-estabelecido. Eu já sabia que deveria usar a alocação de memória mas não sabia qual era a melhor forma de armazenar os dados lidos, fiquei entre: vetor, matriz e lista-encadeada. Acabei desconsiderando quase que de inicio a última opção, pois pensei que o principal uso dessas estrutuas seria justamente para acesso, o que a matriz e o vetor fazem de forma melhorada, em comparação com a lista-encadeada. Dessa forma fiquei entre matriz e vetor, mas ainda na aula eu tive a ideia de usar duas structs diferentes para o trabalho:
+- Uma das partes mais dificeis foi sem duvida o começo, não tinha certeza de como eu faria a leitura e o armazenamento de um número de arquivos não pre-estabelecido. 
+Eu já sabia que deveria usar a alocação de memória mas não sabia qual era a melhor forma de armazenar os dados lidos, fiquei entre: vetor, matriz e lista-encadeada. 
+Acabei desconsiderando quase que de inicio a última opção, pois pensei que o principal uso dessas estrutuas seria justamente para acesso, o que a matriz e o vetor fazem de forma melhorada, em comparação com a lista-encadeada. 
+Dessa forma fiquei entre matriz e vetor, mas ainda na aula eu tive a ideia de usar duas structs diferentes para o trabalho:
  
 - A struct "Histórico", que seria a responsável por armazenar os todas as informações relevantes de cada arquivo para o trabalho, como o nome do arquivo, o numero de meses (pensei de inicio que talvez tivessem arquivos com menos de 12 meses), o formato do arquivo (se era taxa ou cotação), um vetor da struct "Registros", e a capacidade de Registros que ele teria (usada pois não sabia o numero de linhas que cada arquivo teria, com isso, a capacidade vai aumentando dinamicamente).
 
-- A struct "Registro", que seria a responsável por armazenar os dados relevantes da cada linha: a data, e o valor presente nelas. Com isso, cada Struct Histórico, tem um vetor de registros equivalentes, cada um, a cada mês presente no arquivo.
+- A struct "Registro", que seria a responsável por armazenar os dados relevantes da cada linha: a data, e o valor presente nelas. 
+Com isso, cada Struct Histórico, tem um vetor de registros equivalentes, cada um, a cada mês presente no arquivo.
 
+- Dessa maneira, comecei a construir o codigo, já tinha em mente a estrutua geral do main e dos arquivos.
+- Começaria pela leitura das flags e dos valores passados para o programa, para isso, tive que pesquisar de que maneira eu faria isso,
+pois eu so conhecia o scanf para receber entradas. Com isso, descobri pesquisando que tem como colocar parametros na funcao main() principal 
+para extrair dados da string passada na hora de rodar o programa, e eu precisava de duas coisas, a string completa do que foi passado,
+e seu tamanho.
+- Com isso resolvido, comecei a tratar os diferentes casos para detectar as flags, usando comandos de comparacao de strings. 
+- O único ponto que vale destaque nessa parte, é o fato de eu ter que preparar o programa para funcionar independente do número de arquivos,
+por isso, estabeleci uma capacidade maxima inicial de 4 arquivos (e uma variavel que atualizava o numero de arquivos lidos) e um vetor de arquivos com esse tamanho. 
+E a ideia era a seguinte, caso a capacidade maxima fosse atingida, o vetor de arquivos dobraria usando um realloc.
+- Decidi usar a ideia de dobrar o tamanho, algo usado em outras partes também, pelo seu fator de crescimento ser bem maior que de um em um.
+- Ainda nessa parte de tratamento de flags, já "separei" o programa em duas frentes, uma para caso pedisse apenas o valor final do investimento,
+e outra para caso pedisse a janela de comparacoes.
+
+- Depois da leitura de flags, me concentrei na questao de leitura de arquivos e atribuiçao de valores para as structs.
+- Essa foi uma das partes que mais tive dificuldade no trabalho, por não ter tanta familiaridade com manipulação de arquivos.
+- O primeiro problema foi o caminho para leitura do arquivo, criei três strings auxiliares. Uma para ser o caminho de fato, outra para colocar
+o sufixo (se .tax ou .cot) e outra para colocar o nome da pasta (no caso "Documentos").
+- Copiei primeiro o nome para a string principal, e depois concatenei as outras duas para fechar o caminho exato.
+- Após isso, foi feita a leitura do arquivo e as atribuições correspondetes para a struct Histórico, como explicado no estruturas.h:
+    typedef struct 
+    {
+        char *nome_arquivo;
+        Registro *registros; 
+        int total_meses;
+        int capacidade;
+        int formato; // 1: Taxa; 2: Cotação
+    } Historico;
+- Depois fiz a função de leitura de linhas, essa foi com certeza uma das mais complicadas do projeto, usei a funcao fscanf como base para isso.
+Como parâmetro, passei o arquivo, sinalizei que seriam duas strings lidas, sendo que uma seria a data, e a outra o valor.
+- A data foi passada diretamente, porém o valor teria que ser tratado, por conta da sua formatação, que usa "." para separar milhares,
+e usa a "," para separar o inteiro do decimal. Com isso, caso tivesse ".", ele seria removido, e se caso fosse "," virava "."
+- Com essas mudanças, foi possivel transformar a string em float com a funcao atof.
+- Por fim das atribuições, fiz o mesmo esquema com o tamanho do vetor dinâmico para ir aumentando o tamanho da capacidade maxima de cada vetor.
+Nesse caso, a capacidade ir dobrando fica mais clara, pois o numero de linhas de cada arquivo é bem grande, então essa maneira escala de uma
+maneira muito melhor do que ir somando de um em um.
+- Outra questão que de inicio pareceu um problema, foi que os arquivos começam pelo ano mais recente e terminam no mais antigo. Mas isso
+complicava completamente meu programa pela maneira que as funçoes foram implementadas, por isso, criei uma funcao auxiliar apenas para inverter
+essa ordem, pois assim eu não teria que alterar tudo que eu ja tinha criado.
+
+
+
+- Caso pedisse a janela, a ideia seria a seguinte, criar um vetor de historicos para colocar cada arquivo la dentro.
+- Criar um outro vetor apenas para armazenar as "vitorias" de cada arquivo, sendo que os arquivos tem os mesmos indices.
+- Portando, o vitorias[i] representa o numero de vitorias do elemento na posicao i em lista_h.
+- A principal funcao usada para achar o resultado final foi a calculo_janela.
+- Eu tive uma grande dúvida e preocupação sobre esse calculo, porque existia a chance dos arquivos começarem em anos diferentes.
+Então, por exemplo, se um arquivo começasse em 2000 e outro em 1995, o lista_h(1) e todos os seguintes seriam diferentes um dos outros,
+então eu criei uma funcao auxiliar apenas para encontrar o indice do ano (de inicio e fim) em cada arquivo.
+- Para fazer esse cálculo, foi so percorrer o vetor de arquivos, fazer o calculo de cada um no periodo, e encontrar o maior.
+- Assim que o arquivo na posicao i foi "o vencedor", em vitorias[i] recebia +1.
+
+- Caso não pedisse a janela, seria feito um calculo inicial percorrendo o vetor dos arquivos lidos.
+- Foi usada a mesma logica para encontrar o inidice de cada um.
+- Nessa e algumas outras partes fiquei em dúvidas quanto a passagem de arquivos ou entradas "invalidas". Acabei não tratando todos os 
+possíveis erros que podiam acontecer na execução do programa, um dos que tratei por exemplo, foi a entrada de anos que não estão presentes
+nos arquivos.
+- De resto foram apenas cálculos usando as fórmulas fornecidas no enunciado do trabalho.
+
+- Por fim, fiz um arquivo .c apenas para colocar os prints, visto que eles precisavam seguir uma formatação específica para bater 
+com o resultado esperado, e os prints não seriam tao curtos. 
+
+Dúvidas que tive durante o andamento do trabalho:
+- Contar que as entradas vao seguir o padrao correto sempre ou tratar esses erros tambem?
+- Perguntar se preciso liberar a memoria que sobra dos reallocs remanescentes.
+- Perguntar se todos os arquivos estaram na mesma ordem (decrescente)
+- Perguntar se o padrao de strings vai ser sempre a mesma.
+- Levar em conta que todos os anos cobrem de janeira até dezembro.
+
+Possíveis erros e bugs:
+- O principal é que o programa não trata muitos erros relacionados a entradas invalidas, Por exemplo, caso um valor (ou string)
+seja colocado na entrada sem uma flag anterior, esse valor entrará no vetor de lista de arquivos.
