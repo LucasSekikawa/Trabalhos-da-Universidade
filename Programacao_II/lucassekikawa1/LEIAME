@@ -107,5 +107,14 @@ Dúvidas que tive durante o andamento do trabalho:
 - Levar em conta que todos os anos cobrem de janeira até dezembro.
 
 Possíveis erros e bugs:
-- O principal é que o programa não trata muitos erros relacionados a entradas invalidas, Por exemplo, caso um valor (ou string)
-seja colocado na entrada sem uma flag anterior, esse valor entrará no vetor de lista de arquivos.
+- O principal é que o programa não trata erros relacionados a entradas invalidas, Por exemplo, caso um valor (ou string)
+seja colocado na entrada sem uma flag anterior, esse valor entrará no vetor de lista de arquivos. Ou seja, para funcionar
+a entrada deve seguir exatamente o padrao passado no enunciado.
+
+Atualizacoes:
+- Implementei um ponteiro para funcao no codigo principal. Eu já tinha todo o funcionamento do codigo em mãos,
+então bastou eu criar os arquivos "processamento.c" e "processamento.h" para colocar essas duas funções lá.
+No juros.c criei o ponteiro para funcao "anailse_funcao", ela recebe todos os parametros necessarios para a execução
+do código, e começando valendo NULL. A checagem foi feita baseada na variavel "tam_janela", se essa variavel
+for diferente de 0, o ponteiro vai apontar para a funcao "modo_janela". Caso contrário, o ponteiro vai apontar
+para a funcao "modo_comparacao"

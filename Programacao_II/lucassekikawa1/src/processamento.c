@@ -15,7 +15,8 @@ tam_janela, double capital_inicial)
         {            
             Historico *h = carregar_arquivo(arquivos[i]);
             
-            if (h != NULL) {
+            if (h != NULL) 
+            {
                 // Localiza os índices baseados nas flags -i e -f
                 int indice_ini = encontrar_indice_ano(h, ano_inicio);
                 int indice_fim = encontrar_indice_ano(h, ano_fim);
@@ -47,7 +48,7 @@ tam_janela, double capital_inicial)
 void modo_janela(char **arquivos, int num_arquivos, int ano_inicio,
      int ano_fim, int tam_janela, double capital_inicial)
 {
-            // Cria um vetor do tipo Historico para os arquivos lidos
+        // Cria um vetor do tipo Historico para os arquivos lidos
         Historico **lista_h = malloc(num_arquivos * sizeof(Historico *));
 
         // Vetor para armazenar a "vitoria" de cada investimento por janela
